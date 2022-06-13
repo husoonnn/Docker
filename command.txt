@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  webserver:
+    image: nginx:latest
+    restart: always
+    ports: 
+      - "8080:80"
+    volumes: 
+      - ./websites:/usr/share/nginx/html
+
+services:
+  docker:
+    image: docker
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+
+ls
+sudo docker-compose up -d
+sudo docker ps
+sudo docker-compose down
